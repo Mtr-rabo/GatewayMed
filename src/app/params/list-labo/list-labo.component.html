@@ -1,0 +1,137 @@
+<div class="card">
+  <div class="card-header bg-default">
+    <h4 class="text-dark text-left text-bold">Parametres/Laboratoire</h4>
+  </div>
+</div>
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <input
+        class="inputReseach"
+        placeholder="Recherche .... "
+        type="text"
+        name="fname"
+        autofocus
+      />
+    </div>
+    <div class="col-md-6">
+      <div class="d-flex flex-row">
+        <button class="btn btn-primary mr-2" [routerLink]="['/params/ajout-lab']">
+          Créer
+        </button>
+        <div class="">
+          <button
+            class="dropdown-toggle btn btn-secondary text-light p-2 "
+
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Action
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-right p-2 m-2"
+            aria-labelledby="navbarDropdown"
+          >
+            <button class="dropdown-item btn bg-danger  ">
+              <span class="text-light" > Supprimer </span>
+            </button>
+            <button class="dropdown-item btn bg-success  " >
+              <span class="text-light"> Modifier</span>
+
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mt-4 ">
+
+        <mat-paginator class="bg-white text-dark" style="color:dark ;" [length]="listLabo.total_elements" [pageSize]="listLabo.size" [pageSizeOptions]="[5, 10, 20, 100]" (page)="getPage($event)">
+        </mat-paginator>
+    </div>
+    </div>
+  </div>
+  <div class="section_body mt-3">
+    <div class="card">
+      <div class="card-body">
+        <table *ngIf="listLabo.contents" class="table ">
+        <thead class="bg-secondary text-light">
+          <th>
+            <input type="checkbox" name="selectedAll" id="selectedAll">
+          </th>
+            <th >
+              Ordre
+                <!-- <mat-checkbox id="parent" (change)="onChangeDemo($event)"></mat-checkbox> -->
+            </th>
+            <th >
+                <div >
+                    Nom
+                </div>
+            </th>
+
+            <th >
+                <div >Description</div>
+            </th>
+            <th  class="float-right" >
+                <div >Action</div>
+            </th>
+        </thead>
+
+        <tr  *ngFor="let item of listLabo.contents;let i = index">
+            <td>
+              <input type="checkbox" name="lab_{{i}}" id="lab_{{i}}">
+            </td>
+            <td>
+                <div>
+                    {{i+1 }}
+                </div>
+            </td>
+            <td>
+                <div >
+                    <p>
+                        {{ item.name }}
+                    </p>
+                </div>
+            </td>
+
+            <td>
+                <div >
+                  {{ item.description }}
+                </div>
+            </td>
+            <td >
+               <div class="float-right">
+                 <button class="border-0 mr-2" type="button" (click)="modifier(item)" ><i class="bi bi-pencil text-primary"style="font-size: 1.2rem;"></i></button>
+                 <button class="border-0" type="button" (click)="supprimer(item)" ><i class="bi  bi-trash text-danger "style="font-size: 1.2rem;"></i></button>
+
+               </div>
+           </td>
+        </tr>
+        <tr *ngIf="listLabo.contents && listLabo.contents.length < 1">
+            <td colspan="3">
+                <div class="resultats">
+                    Aucun résultat trouvé
+                </div>
+            </td>
+        </tr>
+    </table></div>
+
+    </div>
+
+  <!--   <div class="section_header">
+    <div class="s1">
+    </div>
+    <div class="s2">
+        <mat-form-field>
+            <mat-label>Recherche...</mat-label>
+            <input matInput id="typeahead-format" type="text" class="form-control" [(ngModel)]="searchParams.libelle_recherche" />
+        </mat-form-field>
+
+    </div>
+</div> -->
+</div>
+<div class="card-footer text-muted">2022 Med</div>

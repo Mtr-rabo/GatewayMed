@@ -1,0 +1,150 @@
+<div class="card">
+  <div class="card-header bg-default">
+    <h4 class="text-dark text-left text-bold">Nouveau laboratoire</h4>
+  </div>
+</div>
+<div class="card-body">
+  <form name="editForm" role="form" novalidate #editForm="ngForm">
+    <div class="row">
+    <div class="col-md-6">
+      <div class="d-flex flex-row">
+        <button class="btn btn-primary text-light mr-2" [disabled]="!lab.name || !lab.description" (click)="save()" type="button">
+          Enresgistrer
+        </button>
+
+          <button
+            class=" btn btn-secondary text-light  "
+            (click)="annuler()"
+           type="button"
+          >
+            Annuler
+          </button>
+
+
+      </div>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-12">
+      <hr/>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="text-required" for="name">Nom</label>
+      <input
+        type="text"
+        class="form-control form-control-sm"
+        name="name"
+        id="name"
+        [(ngModel)]="lab.name"
+        required
+        maxlength="30"
+      />
+      <!-- <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.name?.errors?.required"> Ce champ est obligatoire </small>
+        <small class="form-text text-danger" [hidden]="!editForm.controls.name?.errors?.maxlength">
+          Ce champ ne doit pas exc&eacute;der 30 caract&egrave;res
+        </small>
+      </div> -->
+    </div>
+    <div class="form-group col-md-6">
+      <label class="text-required" for="description">Description</label>
+      <input
+        type="text"
+        class="form-control form-control-sm"
+        name="description"
+        id="description"
+        [(ngModel)]="lab.description"
+        required
+        maxlength="50"
+      />
+     <!--  <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.description?.errors?.required">
+          Ce champ est obligatoire
+        </small>
+        <small class="form-text text-danger" [hidden]="!editForm.controls.description?.errors?.maxlength">
+          Ce champ ne doit pas exc&eacute;der 255 caract&egrave;res
+        </small>
+      </div> -->
+    </div>
+  <div class="form-group col-md-6">
+    <label class="text-required" for="telephone">Téléphone</label>
+    <input
+    type="tel"
+    class="form-control form-control-sm"
+    name="telephone"
+    id="telephone"
+    [(ngModel)]="lab.telephone"
+    required
+
+  />
+</div>
+  <div class="form-group col-md-6">
+    <label class="text-required" for="email">Email</label>
+    <input
+    type="email"
+    class="form-control form-control-sm"
+    name="email"
+    id="email"
+    [(ngModel)]="lab.email"
+
+
+  />
+</div>
+  <div class="form-group col-md-6">
+    <label class="text-required" for="adresseLigne1">Adresse 1</label>
+    <input
+    type="text"
+    class="form-control form-control-sm"
+    name="adresseLigne1"
+    id="adresseLigne1"
+    [(ngModel)]="lab.adresseLigne1"
+
+
+  />
+</div>
+  <div class="form-group col-md-6">
+    <label class="text-required" for="adresseLigne2">Adresse 2</label>
+    <input
+    type="text"
+    class="form-control form-control-sm"
+    name="adresseLigne2"
+    id="adresseLigne2"
+    [(ngModel)]="lab.adresseLigne2"
+
+
+  />
+</div>
+ <!--  <div class="form-group col-md-6">
+    <label class="text-required" for="Pays">Pays</label>
+    <input
+    type="text"
+    class="form-control form-control-sm"
+    name="pays"
+    id="pays"
+    [(ngModel)]="lab.pays"
+
+
+  />
+</div> -->
+  <div class="form-group col-md-6">
+    <label class="text-required" for="site_web">Site Web</label>
+    <input
+    type="text"
+    class="form-control form-control-sm"
+    name="site_web"
+    id="site_web"
+    [(ngModel)]="lab.site_web"
+
+
+  />
+</div>
+  <div class="form-group col-md-6">
+    <label class="text-required" for="internal_note">Note </label>
+    <textarea class="form-control form-control-sm"  name="internal_note"   id="internal_note"   [(ngModel)]="lab.internal_note" cols="30" rows="10"></textarea>
+ </div>
+
+
+  </div>
+
+  </form>
+
+</div>
